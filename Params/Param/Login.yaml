@@ -1,0 +1,14 @@
+---
+#:mode 0 == get  1 == post 2 == post_request_multipart 3 == post_request_urlencoded
+
+Basic:
+  dec: "验证码登录"
+  parameters:
+    -
+      test_name: '用户验证码登录'
+      mode: 0
+      method: post_request_urlencoded
+      url: /api/user/loginOrRegister
+      data: {'phoneNum':'13501903333','nationalCode' :'86','code':'123456','nickname':'Mr.Bear'}
+      header: {'Content-Type': 'application/x-www-form-urlencoded', "appCommId": '34474', "cusId": "0",
+                "client": "2"}

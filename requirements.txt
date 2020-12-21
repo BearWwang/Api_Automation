@@ -1,0 +1,8 @@
+py==1.10.0
+PyMySQL==0.9.3
+allure_python_commons==2.8.15
+pytest==5.4.0
+requests_toolbelt==0.9.1
+requests==2.23.0
+pycryptodome==3.9.9
+PyYAML==5.3.1

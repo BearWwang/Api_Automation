@@ -1,0 +1,34 @@
+---
+#:mode 0 == get  1 == post 2 == post_request_multipart 3 == post_request_urlencoded
+Process:
+  dec: "主流程"
+  parameters:
+    -
+      test_name: '获取枪头详情信息'
+      mode: 0
+      methods: get
+      url: /v2/iot/device/getPlugInfo
+      data: plugNo=0102888884000101
+      header: {'Content-Type': 'application/json', "appCommId": '34474', "client": "2","appVersion": "23", "appId": "wx9f655776219990e6", "cusId":  '59319'
+      }
+      expected: 0
+
+    -
+      test_name: '枪头编号查询可用账户'
+      mode: 0
+      methods: get
+      url: /api/user/queryAccount
+      data: plugNo=0102888884000101
+      header: {'Content-Type': 'application/json', "appCommId": '34474', "client": "2","appVersion": "23", "appId": "wx9f655776219990e6", "cusId":  '59319'
+      }
+      expected: 0
+
+    -
+      test_name: '获取幂等型接口调用所需的token'
+      mode: 0
+      methods: get
+      url: /api/v2/token/getIdempotentToken
+      data: uid=59319
+      header: {'Content-Type': 'application/json', "appCommId": '34474', "client": "2","appVersion": "23", "appId": "wx9f655776219990e6", "cusId":  '59319'
+      }
+      expected: 0
