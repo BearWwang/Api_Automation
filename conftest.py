@@ -57,8 +57,7 @@ def pytest_runtest_makereport(item):
     extra.append(pytest_html.extras.text('some string', name='Different title'))
     report.description = str(item.function.__doc__)
     report.nodeid = report.nodeid  # 解决乱码
-
-    # report.nodeid = report.nodeid.encode("utf-8").decode("unicode_escape")  # 解决乱码
+    report.nodeid = report.nodeid.encode("utf-8").decode("unicode_escape")  # 解决乱码
 
 
 #
@@ -70,7 +69,6 @@ def pytest_collection_modifyitems(session, items):
     # print(type(items))
     # print("收集到的测试用例:%s" % items)
     # sort排序，根据用例名称item.name 排序
-    items.sort(key=lambda x: x.name.encode("utf-8").decode("unicode_escape"))
-    print("排序后的用例：%s" % items)
+    items.sort(key=lambda x: x.name)
     for item in items:
         print("用例名:%s" % item.name.encode("utf-8").decode("unicode_escape"))

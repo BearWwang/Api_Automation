@@ -25,17 +25,18 @@ class TestBasic(object):
     config = Config()
     noti = notify()
 
-    ids = [
-        "测试：{}".
-            format(case['test_name']) for case in case_data
-    ]
+    # ids = [
+    #     "测试：{}".
+    #         format(case['test_name']) for case in case_data
+    # ]
     @allure.feature('Home')
     @allure.severity('blocker')
     @allure.story('Basic')
     @allure.issue('https://baidu.com')
     @allure.testcase('https://baidu.com')
     @pytest.mark.flaky(reruns=3)
-    @pytest.mark.parametrize('case', case_data, ids=ids)
+    # @pytest.mark.parametrize('case', case_data, ids=ids)
+    @pytest.mark.parametrize('case', case_data)
     def test_login(self,case):
         """
         小程序登录

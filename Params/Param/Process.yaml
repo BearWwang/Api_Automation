@@ -11,7 +11,8 @@ Process:
       data: plugNo=0102888884000101
       header: {'Content-Type': 'application/json', "appCommId": '34474', "client": "2","appVersion": "23", "appId": "wx9f655776219990e6", "cusId":  '59319'
       }
-      expected: 0
+      parser: {'status' :"['status']", 'evseNo':'["data"]["evseNo"]' ,'siteId':'["data"]["siteId"]' }
+      expected: { 'status':0 , 'evseNo': '028888840001', 'siteId':'2008127226756535437' }
 
     -
       test_name: '枪头编号查询可用账户'
@@ -21,7 +22,8 @@ Process:
       data: plugNo=0102888884000101
       header: {'Content-Type': 'application/json', "appCommId": '34474', "client": "2","appVersion": "23", "appId": "wx9f655776219990e6", "cusId":  '59319'
       }
-      expected: 0
+      parser: {'status':"['status']", 'userId':"['data'][0]['userId']"}
+      expected: { 'status':0 , 'userId': 59319}
 
     -
       test_name: '获取幂等型接口调用所需的token'
@@ -31,4 +33,5 @@ Process:
       data: uid=59319
       header: {'Content-Type': 'application/json', "appCommId": '34474', "client": "2","appVersion": "23", "appId": "wx9f655776219990e6", "cusId":  '59319'
       }
-      expected: 0
+      parser: {'status':"['status']"}
+      expected: { 'status':0}
